@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>My app</title>	  
+		<link rel="stylesheet" href="css/app.css" />
+		<script src="js/lib/dust-core-1.0.0.js"></script>
+		<script data-main="js/main" src="js/lib/require.js"></script>
+	</head>
+	
+	<body>
+	  	{>"public/templates/inc/header.dust"/}
+	
+	  	<div id="content">
+	    	{>"public/templates/{viewName}.dust"/}
+	    </div>
+	
+	  	{>"public/templates/inc/footer.dust"/}
+	</body>
+	
+</html> 

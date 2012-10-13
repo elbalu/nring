@@ -1,0 +1,23 @@
+<section id="login">
+	<h1>Sign up</h1>
+	
+	<form action="/signup" method="POST" class="proceed">
+	
+		<p class="field">
+			<label for="email">Email</label>
+			<input type="text" name="email" />
+		</p>
+		<p class="field">
+			<label for="password">Password</label>
+			<input type="password" name="password" />
+		</p>
+		<p class="field">
+			<label for="confirm">Confirm password</label>
+			<input type="password" name="confirm" />
+		</p>
+				
+		<input type="submit" id="submitBtn"  value="Submit" />
+
+	</form>
+	
+</section>
