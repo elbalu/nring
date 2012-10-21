@@ -1,0 +1,1 @@
+<h1>Success!!! {data.user.username}----{data.session.passport.user.username}</h1>

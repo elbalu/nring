@@ -1,22 +1,3 @@
 <section id="login">
-	<h1>Login</h1>
-	
-	<form action="/login" method="POST" class="proceed">
-	
-		<p class="field">
-			<label for="email">Email</label>
-			<input type="text" name="email" />
-		</p>
-		<p class="field">
-			<label for="password">Password</label>
-			<input type="password" name="password" />
-		</p>
-		
-		<input type="submit" id="submitBtn"  value="Submit" />
-		
-		<p>
-			Don't have an account yet? <a href="/signup" class="proceed">Sign up</a>
-		</p>
-	</form>
-	
+
 </section>

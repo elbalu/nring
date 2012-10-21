@@ -1,3 +1,13 @@
-<header>
-	Header
-</header>
+<div class="navbar">
+  
+    <div class="container">
+
+         <h2><a href="/"><img class="logo" src="../../../images/nr2.png"/></a></h2>
+         {?data.session.passport.user.username}
+         <div class="pull-right"><img class="profilePic" src="https://graph.facebook.com/{data.session.passport.user.username}/picture"/>{data.session.passport.user.displayName} <a href="/logout">Logout</a></div>
+         {:else}
+          <div class="pull-right"><a href="/auth/facebook" class="signinFB"><img class="fbLogin" src="../../../images/fb.png"/></a></div>
+          {/data.session.passport.user.username}
+    </div>
+  
+</div>

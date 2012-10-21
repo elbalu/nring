@@ -1,10 +1,29 @@
 module.exports = function(app) {
        
-	app.get('/', function(req, res) {
-		res.render('public/templates/base', {
-			viewName: "login"
-		});		
-	});
+
+
+	 app.get('/', function(req, res){
+        // console.log("---success-----");
+        // console.log(req.user);
+        var session = req.session,
+                user = session.user;
+
+        req.model = {
+                viewName: 'home',
+                master: 'public/templates/base',
+                data: {
+                    session:session,                   
+                    title: 'home'
+                }
+         };
+          console.log("---index session-----");
+        console.log(session);
+       res.render(req.model.master, req.model);
+
+    });
+
+
+
 
     function processThis(req,res){
 	    var user = new UserModel("John", "Appleseed");

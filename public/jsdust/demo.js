@@ -1,0 +1,1 @@
+(function(){dust.register("public/templates/demo.dust",body_0);function body_0(chk,ctx){return chk.write("<div id=\"demo\"><h1>demo </h1></div>");}return body_0;})();

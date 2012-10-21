@@ -2,3 +2,5 @@ rm -rf ./jsdust/
 dustc public/templates/login.dust public/jsdust/login.js
 dustc public/templates/loggedin.dust public/jsdust/loggedin.js
 dustc public/templates/signup.dust public/jsdust/signup.js
+dustc public/templates/userSet.dust public/jsdust/userSet.js
+dustc public/templates/demo.dust public/jsdust/demo.js

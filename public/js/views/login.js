@@ -14,9 +14,11 @@ define([
 			},
 			
 			initialize: function(json) {
+
 			},
 			
 			render: function(json) {
+				
 			}
 		
 		});
