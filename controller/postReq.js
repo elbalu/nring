@@ -2,24 +2,24 @@ module.exports = function(app) {
        
 
 
-    function processUserSetting(req,res){
+    function processpostReqting(req,res){
     	 var session = req.session,
                 user = session.user;
 
 		return({
-		viewName: "userSet",
+		viewName: "postReq",
 		baseTemplate: 'base',
 		data: {
 			session:session,                   
-                    title: 'user setting'
+                    title: 'post request'
 		}
 		});
     }
 
 
-	 app.get('/userSet', function(req, res){
+	 app.get('/postReq', function(req, res){
 
-	 		var json = processUserSetting(req,res);
+	 		var json = processpostReqting(req,res);
 
 				if(req.header('X-Requested-With') == 'XMLHttpRequest') {
 				res.writeHead(200, { 'Content-Type': 'application/json' });

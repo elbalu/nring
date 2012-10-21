@@ -1,30 +1,27 @@
-/*global window:true document:true */
-
 define([
-	'jquery',
-	'backbone'
-],
-
-function ($, Backbone) {
-	'use strict';
-
-
-	return Backbone.View.extend({
-
-		el: '#demo',
-
-
-		events: {
-						
-		},
-
-		initialize: function () {
-			
-			this.model = new Backbone.Model();
-		},
-
+	'jquery', 
+	'underscore', 
+	'backbone',
+	'../../jsdust/demo'
+	], 
+	function($, _, Backbone){
+	
+		var View = Backbone.View.extend({
 		
-	});
-
-});
-
+			el: '#demo',
+		
+			events: {
+			},
+			
+			initialize: function(json) {
+			},
+			
+			render: function(json) {
+			}
+		
+		});
+		
+		return View;
+	
+	}
+);

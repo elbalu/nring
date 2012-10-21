@@ -2,25 +2,22 @@ define([
 	'jquery', 
 	'underscore', 
 	'backbone',
-	'../../jsdust/userSet'
+	'../../jsdust/accountDet'
 	], 
 	function($, _, Backbone){
 	
 		var View = Backbone.View.extend({
 		
-			el: '#userSet',
+			el: '#accountDet',
 		
 			events: {
 			},
 			
 			initialize: function(json) {
-							
 			},
 			
 			render: function(json) {
-					
 			}
-			
 		
 		});
 		

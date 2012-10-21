@@ -1,0 +1,1 @@
+(function(){dust.register("public/templates/accountDet.dust",body_0);function body_0(chk,ctx){return chk.write("<div id=\"accountDet\"><h1>Account Details</h1></div>");}return body_0;})();

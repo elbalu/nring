@@ -4,3 +4,6 @@ dustc public/templates/loggedin.dust public/jsdust/loggedin.js
 dustc public/templates/signup.dust public/jsdust/signup.js
 dustc public/templates/userSet.dust public/jsdust/userSet.js
 dustc public/templates/demo.dust public/jsdust/demo.js
+dustc public/templates/socialLib.dust public/jsdust/socialLib.js
+dustc public/templates/accountDet.dust public/jsdust/accountDet.js
+dustc public/templates/postReq.dust public/jsdust/postReq.js

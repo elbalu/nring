@@ -2,25 +2,22 @@ define([
 	'jquery', 
 	'underscore', 
 	'backbone',
-	'../../jsdust/userSet'
+	'../../jsdust/postReq'
 	], 
 	function($, _, Backbone){
 	
 		var View = Backbone.View.extend({
 		
-			el: '#userSet',
+			el: '#postReq',
 		
 			events: {
 			},
 			
 			initialize: function(json) {
-							
 			},
 			
 			render: function(json) {
-					
 			}
-			
 		
 		});
 		

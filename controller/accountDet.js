@@ -7,17 +7,17 @@ module.exports = function(app) {
                 user = session.user;
 
 		return({
-		viewName: "userSet",
+		viewName: "accountDet",
 		baseTemplate: 'base',
 		data: {
 			session:session,                   
-                    title: 'user setting'
+                    title: 'Account Details'
 		}
 		});
     }
 
 
-	 app.get('/userSet', function(req, res){
+	 app.get('/accountDet', function(req, res){
 
 	 		var json = processUserSetting(req,res);
 

@@ -2,25 +2,22 @@ define([
 	'jquery', 
 	'underscore', 
 	'backbone',
-	'../../jsdust/userSet'
+	'../../jsdust/socialLib'
 	], 
 	function($, _, Backbone){
 	
 		var View = Backbone.View.extend({
 		
-			el: '#userSet',
+			el: '#socialLib',
 		
 			events: {
 			},
 			
 			initialize: function(json) {
-							
 			},
 			
 			render: function(json) {
-					
 			}
-			
 		
 		});
 		

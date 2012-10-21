@@ -1,8 +1,8 @@
 <ul class="nav nav-list">
-   <li class="active"><a href="/demo" class="proceed">Demo</a></li>
-   <li><a href="/userSet" class="proceed">User Settings</a></li>
-   <li><a href="/signup" class="proceed">Post a lend</a></li>
-   <li><a href="/socialLib" class="proceed">Social library</a></li>
-   <li><a href="/accountDet" class="proceed">Account details</a></li>
+   <li class="active"><a href="/demo" class="proceedInner">Demo</a></li>
+   <li><a href="/userSet" class="proceedInner">User Settings</a></li>
+   <li><a href="/postReq" class="proceedInner">Post a lend</a></li>
+   <li><a href="/socialLib" class="proceedInner">Social library</a></li>
+   <li><a href="/accountDet" class="proceedInner">Account details</a></li>
    
 </ul>
