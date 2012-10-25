@@ -18,6 +18,8 @@ module.exports = function(app) {
          };
           console.log("---index session-----");
         console.log(session);
+          console.log("---index session.passport.user.emails-----");
+        console.log(session.passport.user);
        res.render(req.model.master, req.model);
 
     });

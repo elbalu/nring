@@ -1,0 +1,31 @@
+<section id="recentPosts">
+<h2>Recent Posts</h2>
+<ul>
+	<li class="span3">
+	    <a class="thumbnail" href="#">
+	        <img alt="" src="http://placehold.it/260x120">
+	    </a>
+	</li>
+	<li class="span3">
+	    <a class="thumbnail" href="#">
+	        <img alt="" src="http://placehold.it/260x120">
+	    </a>
+	</li>
+	<li class="span3">
+	    <a class="thumbnail" href="#">
+	        <img alt="" src="http://placehold.it/260x120">
+	    </a>
+	</li>
+	<li class="span3">
+	    <a class="thumbnail" href="#">
+	        <img alt="" src="http://placehold.it/260x120">
+	    </a>
+	</li>
+	<li class="span2 viewAll">
+	    <a class="thumbnail" href="#">
+	        View all >>
+	    </a>
+	</li>
+</ul>
+</section>
+

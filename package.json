@@ -28,7 +28,9 @@
     "bootstrap":"0.0.2",
 	"crypto": "0.0.3",
   "less-middleware":"0.1.8",
-  "passport":"0.1.12"
+  "passport":"0.1.12",
+  "passport-facebook": "0.1.4",
+  "googlemaps":"0.1.7"
   },
  "engines": {
     "node": "0.6.x"

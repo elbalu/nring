@@ -1,5 +1,5 @@
 <ul class="nav nav-list">
-   <li class="active"><a href="/demo" class="proceedInner">Demo</a></li>
+   <li><a href="/demo" class="proceedInner">Demo</a></li>
    <li><a href="/userSet" class="proceedInner">User Settings</a></li>
    <li><a href="/postReq" class="proceedInner">Post a lend</a></li>
    <li><a href="/socialLib" class="proceedInner">Social library</a></li>

@@ -28,17 +28,33 @@ header {
 	min-width: 150px;
 }
 
-.navbar{
-
+.navbar.header{
+	z-index:10000;
   background: url(../images/bg-pattern-dark.png);
-  position:fixed; width:100%;top:0;
+ 	   -webkit-box-shadow: 0 8px 6px -6px black;
+       -moz-box-shadow: 0 8px 6px -6px black;
+            box-shadow: 0 8px 6px -6px black;
+            
+}
+.navbar.footer{
+	z-index:10000;
+  background: url(../images/bg-pattern-dark.png);
+  width:100%;
+  padding:5px;
+  margin:0;
     -webkit-box-shadow: 0 8px 6px -6px black;
        -moz-box-shadow: 0 8px 6px -6px black;
             box-shadow: 0 8px 6px -6px black;
             
 }
 .navbar .container {color:#fff;
+	
 	.pull-right{margin-right:10px;
+		.btn-group{margin-top:20px;
+			.dropdown-menu{
+				left:65px;
+			}
+		}
 		a.signinFB{
 			margin-top:30px; 
 			font-weight:bold;
@@ -47,7 +63,7 @@ header {
 		}
 		img.fbLogin{height:60px; margin:5px 0 5px 20px;}
 	}
-	img.profilePic{height:40px; margin:15px 5px 15px 20px;}
+	img.profilePic{height:40px; margin:15px 5px 15px 20px; float:left;}
 	h2{display:inline;
 		img.logo{height:60px; margin:5px 0 5px 20px;}
 	}
@@ -59,14 +75,38 @@ header {
 	background-color:#44423D;
 	width:50px;
 	margin-left:20px;
+	 left: 29px;
+    overflow: hidden;
+    position: fixed;
+    top: 120px;
+    z-index: 700;
 	li{
+		
 		border-bottom:1px solid #6E6D70;
+		padding:10px 5px;
 		a{color:#fff;
-		background-color:#91B81D;}
+		}
 		a:hover{background-color:#01B3BF;}
 	}
 	
 }
 #innerContent{
 	border:2px solid #6E6D70;
+}
+.carousel{
+
+}
+#panelSetProfile{
+display:block;
+	h2{margin-left:30px;}
+}
+#recentPosts{
+	display:block;
+	h2{margin-left:30px;}
+	ul{
+		li{
+			list-style:none;
+		}
+		li.viewAll{margin-top:40px;}
+	}
 }

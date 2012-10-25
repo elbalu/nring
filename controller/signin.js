@@ -15,7 +15,7 @@ module.exports = function(app) {
         scope: ['user_status', 'user_photos']
         }, { display: 'popup' }),    
         function(req, res) {
-            
+
         }
     );
 
@@ -46,8 +46,10 @@ module.exports = function(app) {
                     title: 'login success'
                 }
          };
-          console.log("---session-----");
+          console.log("---session-----------------------------------------");
         console.log(session);
+        console.log("---session.passport.user._json-----");
+        console.log(session.passport.user._json.work[0]);
        res.render(req.model.master, req.model);
 
     });

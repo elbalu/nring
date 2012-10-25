@@ -1,3 +1,40 @@
-<div id="userSet">
-	<h1>User Setting</h1>
-</div>
+
+<section id="userSet">
+	<h3>Set your profile</h3>
+	<p>Just two steps and your are set to go.<p> 
+	<p>Enter your personal info to allow others to contact you when you have something to lend or need something from others nearby your location.</p>
+	  {?data.session.passport.user.username}
+       	<form class="form-horizontal proceed" action="/locationSetting" method="post">
+	     	<div class="control-group">
+			    <label class="control-label" for="userName">
+			    	<img class="profilePic" src="https://graph.facebook.com/{data.session.passport.user.username}/picture"/>
+			    </label>
+			    <div class="controls">
+				    <label class="control-label" for="userName">{data.session.passport.user.displayName}</label>
+			    </div>
+		    </div>
+		    <div class="control-group">
+			    <label class="control-label" for="userEmail">Email:</label>
+			    <div class="controls">
+				    <input type="text" id="userEmail" placeholder="{data.session.passport.user.emails[0].value}">
+			    </div>
+		    </div>
+		    <div class="control-group">
+			    <label class="control-label" for="userMobNum">Password</label>
+			    <div class="controls">
+				    <input type="text" id="userMobNum" placeholder="Mobile Number">
+			    </div>
+		    </div>
+		    <div class="control-group">
+			    <div class="controls">
+				    <button type="submit" class="btn-primary">Save and Continue</button>
+			    </div>
+		    </div>
+		</form>
+		<a href="/demo" class="proceedInner">Demo</a>
+	 {:else}
+          <a href="/auth/facebook" class="signinFB"><img class="fbLogin" src="../../../images/fb.png"/></a>
+      {/data.session.passport.user.username}
+
+		
+</section>

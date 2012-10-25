@@ -5383,11 +5383,19 @@ header {
   float: left;
   min-width: 150px;
 }
-.navbar {
+.navbar.header {
+  z-index: 10000;
   background: url(../images/bg-pattern-dark.png);
-  position: fixed;
+  -webkit-box-shadow: 0 8px 6px -6px #000000;
+  -moz-box-shadow: 0 8px 6px -6px #000000;
+  box-shadow: 0 8px 6px -6px #000000;
+}
+.navbar.footer {
+  z-index: 10000;
+  background: url(../images/bg-pattern-dark.png);
   width: 100%;
-  top: 0;
+  padding: 5px;
+  margin: 0;
   -webkit-box-shadow: 0 8px 6px -6px #000000;
   -moz-box-shadow: 0 8px 6px -6px #000000;
   box-shadow: 0 8px 6px -6px #000000;
@@ -5397,6 +5405,12 @@ header {
 }
 .navbar .container .pull-right {
   margin-right: 10px;
+}
+.navbar .container .pull-right .btn-group {
+  margin-top: 20px;
+}
+.navbar .container .pull-right .btn-group .dropdown-menu {
+  left: 65px;
 }
 .navbar .container .pull-right a.signinFB {
   margin-top: 30px;
@@ -5411,6 +5425,7 @@ header {
 .navbar .container img.profilePic {
   height: 40px;
   margin: 15px 5px 15px 20px;
+  float: left;
 }
 .navbar .container h2 {
   display: inline;
@@ -5426,17 +5441,40 @@ header {
   background-color: #44423D;
   width: 50px;
   margin-left: 20px;
+  left: 29px;
+  overflow: hidden;
+  position: fixed;
+  top: 120px;
+  z-index: 700;
 }
 .nav.nav-list li {
   border-bottom: 1px solid #6E6D70;
+  padding: 10px 5px;
 }
 .nav.nav-list li a {
   color: #fff;
-  background-color: #91B81D;
 }
 .nav.nav-list li a:hover {
   background-color: #01B3BF;
 }
 #innerContent {
   border: 2px solid #6E6D70;
+}
+#panelSetProfile {
+  display: block;
+}
+#panelSetProfile h2 {
+  margin-left: 30px;
+}
+#recentPosts {
+  display: block;
+}
+#recentPosts h2 {
+  margin-left: 30px;
+}
+#recentPosts ul li {
+  list-style: none;
+}
+#recentPosts ul li.viewAll {
+  margin-top: 40px;
 }
