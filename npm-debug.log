@@ -2,7 +2,7 @@
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'install',
-1 verbose cli   'dust-helper' ]
+1 verbose cli   'node-LDAP' ]
 2 info using npm@1.1.66
 3 info using node@v0.8.15
 4 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/package.json
@@ -31,39 +31,39 @@
 27 warn package.json passport-facebook@0.1.4 No README.md file found!
 28 verbose from cache /Users/leipazapalli/Documents/nodeapp/nring/package.json
 29 verbose readDependencies using package.json deps
-30 verbose cache add [ 'dust-helper', null ]
-31 silly cache add name=undefined spec="dust-helper" args=["dust-helper",null]
-32 verbose parsed url { pathname: 'dust-helper',
-32 verbose parsed url   path: 'dust-helper',
-32 verbose parsed url   href: 'dust-helper' }
-33 silly lockFile 6eadfa04-dust-helper dust-helper
-34 verbose lock dust-helper /Users/leipazapalli/.npm/6eadfa04-dust-helper.lock
-35 silly lockFile 6eadfa04-dust-helper dust-helper
-36 verbose addNamed [ 'dust-helper', '' ]
+30 verbose cache add [ 'node-LDAP', null ]
+31 silly cache add name=undefined spec="node-LDAP" args=["node-LDAP",null]
+32 verbose parsed url { pathname: 'node-LDAP', path: 'node-LDAP', href: 'node-LDAP' }
+33 silly lockFile 26c1731c-node-LDAP node-LDAP
+34 verbose lock node-LDAP /Users/leipazapalli/.npm/26c1731c-node-LDAP.lock
+35 silly lockFile 26c1731c-node-LDAP node-LDAP
+36 verbose addNamed [ 'node-LDAP', '' ]
 37 verbose addNamed [ null, '' ]
-38 silly lockFile 846c9a1c-dust-helper dust-helper@
-39 verbose lock dust-helper@ /Users/leipazapalli/.npm/846c9a1c-dust-helper.lock
-40 silly addNameRange { name: 'dust-helper', range: '', hasData: false }
-41 verbose url raw dust-helper
-42 verbose url resolving [ 'https://registry.npmjs.org/', './dust-helper' ]
-43 verbose url resolved https://registry.npmjs.org/dust-helper
-44 info trying registry request attempt 1 at 22:35:13
-45 http GET https://registry.npmjs.org/dust-helper
-46 http 404 https://registry.npmjs.org/dust-helper
+38 silly lockFile c3142839-node-LDAP node-LDAP@
+39 verbose lock node-LDAP@ /Users/leipazapalli/.npm/c3142839-node-LDAP.lock
+40 silly addNameRange { name: 'node-LDAP', range: '', hasData: false }
+41 verbose url raw node-LDAP
+42 verbose url resolving [ 'https://registry.npmjs.org/', './node-LDAP' ]
+43 verbose url resolved https://registry.npmjs.org/node-LDAP
+44 info trying registry request attempt 1 at 22:57:58
+45 http GET https://registry.npmjs.org/node-LDAP
+46 http 404 https://registry.npmjs.org/node-LDAP
 47 silly registry.get cb [ 404,
 47 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
-47 silly registry.get     date: 'Tue, 22 Jan 2013 06:33:40 GMT',
+47 silly registry.get     date: 'Tue, 22 Jan 2013 06:56:25 GMT',
 47 silly registry.get     'content-type': 'application/json',
 47 silly registry.get     'content-length': '52',
 47 silly registry.get     'cache-control': 'must-revalidate' } ]
-48 silly lockFile 846c9a1c-dust-helper dust-helper@
-49 error 404 'dust-helper' is not in the npm registry.
+48 silly lockFile c3142839-node-LDAP node-LDAP@
+49 error 404 'node-LDAP' is not in the npm registry.
 49 error 404 You should bug the author to publish it
+49 error 404
+49 error 404 Maybe try 'npm search     '
 49 error 404
 49 error 404 Note that you can also install from a
 49 error 404 tarball, folder, or http url, or git url.
 50 error System Darwin 12.2.0
-51 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "dust-helper"
+51 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "node-LDAP"
 52 error cwd /Users/leipazapalli/Documents/nodeapp/nring
 53 error node -v v0.8.15
 54 error npm -v 1.1.66
