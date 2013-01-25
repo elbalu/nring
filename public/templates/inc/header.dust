@@ -1,30 +1,10 @@
-<div class="navbar header navbar-fixed-top">
-  
-    <div class="container">
-
-         <h2><a href="/"><!--img class="logo" src="../../../images/nr2.png"/--></a></h2>
-         {?data.session.passport.user.username}
-         <div class="pull-right">
-         	<img class="profilePic" src="https://graph.facebook.com/{data.session.passport.user.username}/picture"/>    
-         	<div class="btn-group">
-			    <button class="btn">{data.session.passport.user.displayName} </button>
-			    <button class="btn dropdown-toggle" data-toggle="dropdown">
-				    <span class="caret"></span>
-			    </button>
-			    <ul class="dropdown-menu">
-				   	<li>
-				   		<a href="/logout">Logout</a>
-				   	</li>
-				   	<li>
-				   		<a href="/userSet">User Setting</a>
-				   	</li>
-			    </ul>
-			</div>
-    
-         </div>
-         {:else}
-          <div class="pull-right"><a href="/auth/facebook" class="signinFB"><img class="fbLogin" src="../../../images/fb.png"/></a></div>
-          {/data.session.passport.user.username}
-    </div>
-  
+<div class="navbar navbar-fixed-top"> 
+	<div class="topnav"> 
+		<div class="pagination-centered"> 
+			<a href="/">
+				<h1>Welcome to </h1><img class="logo" src="../../../images/nr2.png"/>
+			</a>
+		</div> 
+	</div> 
 </div>
+  

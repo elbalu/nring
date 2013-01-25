@@ -5372,23 +5372,22 @@ body {
   padding-top: 90px;
   color: #555555 !important;
 }
-header {
-  border-bottom: 1px solid #a0a0a0;
-  margin-bottom: 10px;
-}
-#content {
-  height: 400px;
-}
-.field label {
-  float: left;
-  min-width: 150px;
-}
-.navbar.header {
+.navbar .topnav {
   z-index: 10000;
   background: url(../images/bg-pattern-dark.png);
   -webkit-box-shadow: 0 8px 6px -6px #000000;
   -moz-box-shadow: 0 8px 6px -6px #000000;
   box-shadow: 0 8px 6px -6px #000000;
+}
+.navbar .topnav h1 {
+  color: #CACACA;
+  display: inline;
+  position: relative;
+  top: 20px;
+}
+.navbar .topnav a img.logo {
+  height: 60px;
+  margin: 5px 0 5px 20px;
 }
 .navbar.footer {
   z-index: 10000;
@@ -5399,82 +5398,4 @@ header {
   -webkit-box-shadow: 0 8px 6px -6px #000000;
   -moz-box-shadow: 0 8px 6px -6px #000000;
   box-shadow: 0 8px 6px -6px #000000;
-}
-.navbar .container {
-  color: #fff;
-}
-.navbar .container .pull-right {
-  margin-right: 10px;
-}
-.navbar .container .pull-right .btn-group {
-  margin-top: 20px;
-}
-.navbar .container .pull-right .btn-group .dropdown-menu {
-  left: 65px;
-}
-.navbar .container .pull-right a.signinFB {
-  margin-top: 30px;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: underline;
-}
-.navbar .container .pull-right img.fbLogin {
-  height: 60px;
-  margin: 5px 0 5px 20px;
-}
-.navbar .container img.profilePic {
-  height: 40px;
-  margin: 15px 5px 15px 20px;
-  float: left;
-}
-.navbar .container h2 {
-  display: inline;
-}
-.navbar .container h2 img.logo {
-  height: 60px;
-  margin: 5px 0 5px 20px;
-}
-.nav.nav-list {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  background-color: #44423D;
-  width: 50px;
-  margin-left: 20px;
-  left: 29px;
-  overflow: hidden;
-  position: fixed;
-  top: 120px;
-  z-index: 700;
-}
-.nav.nav-list li {
-  border-bottom: 1px solid #6E6D70;
-  padding: 10px 5px;
-}
-.nav.nav-list li a {
-  color: #fff;
-}
-.nav.nav-list li a:hover {
-  background-color: #01B3BF;
-}
-#innerContent {
-  border: 2px solid #6E6D70;
-}
-#panelSetProfile {
-  display: block;
-}
-#panelSetProfile h2 {
-  margin-left: 30px;
-}
-#recentPosts {
-  display: block;
-}
-#recentPosts h2 {
-  margin-left: 30px;
-}
-#recentPosts ul li {
-  list-style: none;
-}
-#recentPosts ul li.viewAll {
-  margin-top: 40px;
 }

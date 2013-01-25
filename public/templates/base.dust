@@ -14,13 +14,22 @@
 		<script src="http://maps.google.com/maps/api/js?sensor=true" type="text/javascript"></script>
 	</head>
 	
+
+	
+
+
 	<body>
+		<div class="wrapper">
+			
 	  	{>"public/templates/inc/header.dust"/}
 	
-	  	<div id="content">
+	  	<div class="centerContent">
+			<div class="container">
 	    	{>"public/templates/{viewName}.dust"/}
 
-	    </div>
+	   </div>
+		</div> <!-- /container -->
+		</div>
 	
 	  	{>"public/templates/inc/footer.dust"/}
 	</body>

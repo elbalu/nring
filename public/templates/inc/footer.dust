@@ -1,3 +1,5 @@
-<section class="navbar footer navbar-fixed-bottom">
-	Copy Rights
-</section>
+<div class="navbar footer navbar-fixed-bottom">
+	<div class="pagination-centered">
+		Copy Rights
+	</div>
+</div>

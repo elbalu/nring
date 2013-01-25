@@ -1,14 +1,2 @@
-<div class="row">
-	<!--div class="span2">{>"public/templates/inc/nav.dust"/}</div>
-	<div class="span10">
-		<div id="innerContent">
-			{>"public/templates/demo.dust"/}
-		</div>
-	</div-->
-	{>"public/templates/inc/carousel.dust"/}
-	<div class="divider"><img src="../images/divider.png"/></div>
-	{>"public/templates/panels/panelSetProfile.dust"/}
-	{>"public/templates/panels/recentPost.dust"/}
-	
-</div>
+
 
