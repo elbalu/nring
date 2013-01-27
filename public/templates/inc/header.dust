@@ -1,8 +1,9 @@
 <div class="navbar navbar-fixed-top"> 
 	<div class="topnav"> 
 		<div class="pagination-centered"> 
+		<h1>Welcome to </h1>
 			<a href="/">
-				<h1>Welcome to </h1><img class="logo" src="../../../images/nr2.png"/>
+				<img class="logo" src="../../../images/nr2.png"/>
 			</a>
 		</div> 
 	</div> 

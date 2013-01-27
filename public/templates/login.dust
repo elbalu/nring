@@ -1,3 +1,24 @@
-<section id="login">
-
-</section>
+<div id="login" class="container">
+    <div class="hero-unit span">
+	    <h5 class="online">Login using LDAP</h5>
+        <form class="form-horizontal">
+		    <div class="control-group">
+		    <label class="control-label" for="inputEmail">Email</label>
+		    <div class="controls">
+		    <input type="text" id="inputEmail" placeholder="Email">
+		    </div>
+		    </div>
+		    <div class="control-group">
+		    <label class="control-label" for="inputPassword">Password</label>
+		    <div class="controls">
+		    <input type="password" id="inputPassword" placeholder="Password">
+		    </div>
+		    </div>
+		    <div class="control-group">
+		    <div class="controls">
+		    <button type="submit" class="btn btn-primary">Sign in</button>
+		    </div>
+		    </div>
+	    </form>
+    </div>
+</div>

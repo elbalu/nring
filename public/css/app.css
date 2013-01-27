@@ -5366,24 +5366,22 @@ a.badge:hover {
   background-color: #000000 \9;
 }
 body {
-  font-family: arial;
+  font-family: 'Michroma', sans-serif;
   font-size: 1em;
   background: url(../images/bg-pattern-light.png);
   padding-top: 90px;
-  color: #555555 !important;
+  color: #4B4B48 !important;
 }
 .navbar .topnav {
+  border-top: 3px solid #4B4B48;
   z-index: 10000;
-  background: url(../images/bg-pattern-dark.png);
-  -webkit-box-shadow: 0 8px 6px -6px #000000;
-  -moz-box-shadow: 0 8px 6px -6px #000000;
-  box-shadow: 0 8px 6px -6px #000000;
 }
 .navbar .topnav h1 {
-  color: #CACACA;
+  color: #4B4B48;
   display: inline;
   position: relative;
   top: 20px;
+  font-family: 'Stint Ultra Expanded', cursive;
 }
 .navbar .topnav a img.logo {
   height: 60px;
@@ -5391,11 +5389,16 @@ body {
 }
 .navbar.footer {
   z-index: 10000;
-  background: url(../images/bg-pattern-dark.png);
   width: 100%;
   padding: 5px;
   margin: 0;
-  -webkit-box-shadow: 0 8px 6px -6px #000000;
-  -moz-box-shadow: 0 8px 6px -6px #000000;
-  box-shadow: 0 8px 6px -6px #000000;
 }
+/*
+font-family: 'Stint Ultra Expanded', cursive;
+font-family: 'ABeeZee', sans-serif;
+font-family: 'Lato', sans-serif;
+font-family: 'Crete Round', serif;
+font-family: 'Trade Winds', cursive;
+font-family: 'Michroma', sans-serif;
+font-family: titan-one, serif;
+*/
