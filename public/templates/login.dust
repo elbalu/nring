@@ -1,4 +1,4 @@
-<div id="login" class="container">
+<div id="login">
     <div class="hero-unit span">
 	    <h5 class="online">Login using LDAP</h5>
         <form class="form-horizontal">

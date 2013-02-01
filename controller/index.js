@@ -13,11 +13,59 @@ module.exports = function(app) {
                 master: 'public/templates/base',
                 data: {
                     session:session,                   
-                    title: 'home'
+                    title: 'home',
+                    posts:[
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'lend'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'lend'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    }
+	                    ]
+
+                    
                 }
          };
           console.log("---index session-----");
-        console.log(session);
+        console.log(req.model.data.posts);
           console.log("---index session.passport.user.emails-----");
         console.log(session.passport.user);
        res.render(req.model.master, req.model);

@@ -1,35 +1,68 @@
 @import "bootstrap/bootstrap.less";
 @import "bootstrap/navbar.less";
 body {
-	font-family: 'Michroma', sans-serif;
+	font-family: 'ABeeZee', sans-serif;
 	font-size: 1em;
 	background: url(../images/bg-pattern-light.png); 
 	padding-top:90px; 
 	color:#4B4B48 !important; 
 }
-	.navbar .topnav{
-	border-top:3px solid #4B4B48;
+.navbar .topnav{
+	background-color:#4B4B48;
+	.container{width:90%;}
 	h1{
 		color:#4B4B48; 
 		display:inline;
 		position:relative;
-		top:20px;
-		font-family: 'Stint Ultra Expanded', cursive;
+		top:0px;
+		padding:0; 
+		margin:0;
+		//font-family: 'Stint Ultra Expanded', cursive;
+		//font-family: 'Michroma', sans-serif;
+		font-family: 'ABeeZee', sans-serif;
+		a{
+
+			img.logo{height:50px; margin:5px 0 5px 20px;}
+		}
+		#headerNear{
+			margin-left:10px;
+			color:#A4C144;
+		}
+		#headerRing{
+			color:#27BFC7;
+		}
 	}
-	a{
-		img.logo{height:60px; margin:5px 0 5px 20px;}
-	}
+	
 	z-index:10000;
             
 }
 .navbar.footer{
+	background-color:#4B4B48;
 	z-index:10000;
-  width:100%;
-  padding:5px;
-  margin:0;
-            
+	color:##ECEBEA;
+    width:100%;
+    padding:5px;
+    margin:0;
 }
-	
+.centerContent{
+	.container{width:90%;}
+}
+
+/*posts style */
+.thumbnails{
+	.thumbnail{
+		border-top: 5px solid #A4C143;
+    	img{
+    		height:40px;
+    		border:1px solid #48484d;
+    		margin:10px;
+    	}
+	}
+	.thumbnail-ga{
+		border-top: 5px solid #27BFC7;
+	}
+}
+
 /*
 font-family: 'Stint Ultra Expanded', cursive;
 font-family: 'ABeeZee', sans-serif;

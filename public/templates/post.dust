@@ -1,0 +1,11 @@
+    <ul class="thumbnails">
+        {#data.posts}
+            <li class="span4">
+                <div class="thumbnail {@eq key="{type}" value="ga"}thumbnail-ga{/eq}">
+                    <img class="inline pull-left" src="../../../images/sig.png"/>
+                    <h5>Thumbnail label</h5>
+                    <p>Thumbnail caption...</p>
+                </div>
+            </li>
+        {/data.posts}
+    </ul>

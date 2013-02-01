@@ -5366,32 +5366,61 @@ a.badge:hover {
   background-color: #000000 \9;
 }
 body {
-  font-family: 'Michroma', sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   font-size: 1em;
   background: url(../images/bg-pattern-light.png);
   padding-top: 90px;
   color: #4B4B48 !important;
 }
 .navbar .topnav {
-  border-top: 3px solid #4B4B48;
+  background-color: #4B4B48;
   z-index: 10000;
+}
+.navbar .topnav .container {
+  width: 90%;
 }
 .navbar .topnav h1 {
   color: #4B4B48;
   display: inline;
   position: relative;
-  top: 20px;
-  font-family: 'Stint Ultra Expanded', cursive;
+  top: 0px;
+  padding: 0;
+  margin: 0;
+  font-family: 'ABeeZee', sans-serif;
 }
-.navbar .topnav a img.logo {
-  height: 60px;
+.navbar .topnav h1 a img.logo {
+  height: 50px;
   margin: 5px 0 5px 20px;
 }
+.navbar .topnav h1 #headerNear {
+  margin-left: 10px;
+  color: #A4C144;
+}
+.navbar .topnav h1 #headerRing {
+  color: #27BFC7;
+}
 .navbar.footer {
+  background-color: #4B4B48;
   z-index: 10000;
+  color: ##ECEBEA;
   width: 100%;
   padding: 5px;
   margin: 0;
+}
+.centerContent .container {
+  width: 90%;
+}
+/*posts style */
+.thumbnails .thumbnail {
+  border-top: 5px solid #A4C143;
+}
+.thumbnails .thumbnail img {
+  height: 40px;
+  border: 1px solid #48484d;
+  margin: 10px;
+}
+.thumbnails .thumbnail-ga {
+  border-top: 5px solid #27BFC7;
 }
 /*
 font-family: 'Stint Ultra Expanded', cursive;

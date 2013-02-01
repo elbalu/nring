@@ -7,10 +7,11 @@ var express = require('express'),
 	fs = require('fs'),
 	auth= require('connect-auth'),
 	passport = require('passport'),
+	dust = require('dustjs-linkedin'),
 	FacebookStrategy = require('passport-facebook').Strategy;
 	
 
-
+require('dustjs-helpers');
 
 
 
@@ -53,6 +54,7 @@ app.configure(function(){
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/');
 	app.set('view engine', 'dust');
+	app.set('template_engine', dust);
 	app.use(express.favicon());
 	app.use(express.logger('short'));
 	app.use(express.bodyParser());
