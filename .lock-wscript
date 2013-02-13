@@ -1,0 +1,9 @@
+argv = ['/usr/local/bin/node-waf', 'configure', 'build']
+blddir = '/Users/leipazapalli/Documents/nodeapp/nring/build'
+commands = {'dist': 0, 'configure': True, 'distcheck': 0, 'install': 0, 'build': True, 'clean': 0, 'distclean': 0, 'check': 0, 'uninstall': 0}
+cwd = '/Users/leipazapalli/Documents/nodeapp/nring'
+environ = {'TERM_SESSION_ID': '207749B2-2721-4ABA-B7AD-135F2B47FDBC', 'SSH_AUTH_SOCK': '/tmp/launch-HEGarY/Listeners', 'VERSIONER_PYTHON_PREFER_32_BIT': 'no', 'TERM_PROGRAM_VERSION': '309', 'SHELL': '/bin/sh', 'LOGNAME': 'leipazapalli', 'USER': 'leipazapalli', 'HOME': '/Users/leipazapalli', 'PATH': '/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin', 'TMPDIR': '/var/folders/l8/s9x1ph5n49bfzrd7v4bqh_m42zcz80/T/', 'TERM_PROGRAM': 'Apple_Terminal', 'LANG': 'en_US.UTF-8', 'TERM': 'xterm-256color', 'Apple_PubSub_Socket_Render': '/tmp/launch-r9MBoh/Render', 'VERSIONER_PYTHON_VERSION': '2.7', 'SHLVL': '2', '__CF_USER_TEXT_ENCODING': '0x5F67D00:0:0', 'Apple_Ubiquity_Message': '/tmp/launch-P3ujUm/Apple_Ubiquity_Message', 'PWD': '/Users/leipazapalli/Documents/nodeapp/nring', '_': '/usr/local/bin/node-waf', 'COMMAND_MODE': 'unix2003'}
+files = []
+hash = 0
+options = {'compile_targets': None, 'force': False, 'verbose': 0, 'nocache': False, 'progress_bar': 0, 'destdir': '', 'keep': False, 'zones': '', 'blddir': '', 'prefix': '/usr/local/', 'jobs': 8, 'srcdir': '', 'check_cxx_compiler': 'g++'}
+srcdir = '/Users/leipazapalli/Documents/nodeapp/nring'

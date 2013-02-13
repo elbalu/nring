@@ -3,8 +3,6 @@ module.exports = function(app) {
 
 
 	 app.get('/', function(req, res){
-        // console.log("---success-----");
-        // console.log(req.user);
         var session = req.session,
                 user = session.user;
 
@@ -64,15 +62,74 @@ module.exports = function(app) {
                     
                 }
          };
-          console.log("---index session-----");
-        console.log(req.model.data.posts);
-          console.log("---index session.passport.user.emails-----");
-        console.log(session.passport.user);
        res.render(req.model.master, req.model);
 
     });
 
 
+	 app.get('/posts', function(req, res){
+        var session = req.session,
+                user = session.user;
+
+        req.model = {
+                viewName: 'post',
+                master: 'public/templates/base',
+                data: {
+                    session:session,                   
+                    title: 'posts',
+                    posts:[
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'lend'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'lend'
+
+	                    },
+	                    {
+	                    	type:'lend'
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    },
+	                    {
+	                    	type:'ga'
+
+	                    }
+	                    ]
+
+                    
+                }
+         };
+       res.render(req.model.master, req.model);
+
+    });
 
 
     function processThis(req,res){

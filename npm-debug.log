@@ -1,0 +1,80 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'node-LDAP' ]
+2 info using npm@1.1.66
+3 info using node@v0.8.15
+4 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/package.json
+5 warn package.json spa@0.0.1 No README.md file found!
+6 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/async/package.json
+7 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/bootstrap/package.json
+8 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/connect/package.json
+9 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/connect-auth/package.json
+10 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/consolidate/package.json
+11 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/crypto/package.json
+12 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/duster.js/package.json
+13 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/dustjs-helpers/package.json
+14 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/dustjs-linkedin/package.json
+15 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/express/package.json
+16 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/express-dust/package.json
+17 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/express-validator/package.json
+18 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/facebook-client/package.json
+19 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/facebook-node-sdk/package.json
+20 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/fb/package.json
+21 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/geohash/package.json
+22 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/googlemaps/package.json
+23 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/ldapauth/package.json
+24 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/ldapjs/package.json
+25 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/less/package.json
+26 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/less-middleware/package.json
+27 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/memcached/package.json
+28 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/mongodb/package.json
+29 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/nodemon/package.json
+30 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/passport/package.json
+31 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/passport-facebook/package.json
+32 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/sys/package.json
+33 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/underscore/package.json
+34 verbose read json /Users/leipazapalli/Documents/nodeapp/nring/node_modules/watch/package.json
+35 warn package.json passport@0.1.12 No README.md file found!
+36 warn package.json passport-facebook@0.1.4 No README.md file found!
+37 verbose from cache /Users/leipazapalli/Documents/nodeapp/nring/package.json
+38 verbose readDependencies using package.json deps
+39 verbose cache add [ 'node-LDAP', null ]
+40 silly cache add name=undefined spec="node-LDAP" args=["node-LDAP",null]
+41 verbose parsed url { pathname: 'node-LDAP', path: 'node-LDAP', href: 'node-LDAP' }
+42 silly lockFile 26c1731c-node-LDAP node-LDAP
+43 verbose lock node-LDAP /Users/leipazapalli/.npm/26c1731c-node-LDAP.lock
+44 silly lockFile 26c1731c-node-LDAP node-LDAP
+45 verbose addNamed [ 'node-LDAP', '' ]
+46 verbose addNamed [ null, '' ]
+47 silly lockFile c3142839-node-LDAP node-LDAP@
+48 verbose lock node-LDAP@ /Users/leipazapalli/.npm/c3142839-node-LDAP.lock
+49 silly addNameRange { name: 'node-LDAP', range: '', hasData: false }
+50 verbose url raw node-LDAP
+51 verbose url resolving [ 'https://registry.npmjs.org/', './node-LDAP' ]
+52 verbose url resolved https://registry.npmjs.org/node-LDAP
+53 info trying registry request attempt 1 at 20:16:29
+54 http GET https://registry.npmjs.org/node-LDAP
+55 http 404 https://registry.npmjs.org/node-LDAP
+56 silly registry.get cb [ 404,
+56 silly registry.get   { server: 'CouchDB/1.2.1 (Erlang OTP/R15B)',
+56 silly registry.get     date: 'Mon, 11 Feb 2013 04:14:22 GMT',
+56 silly registry.get     'content-type': 'application/json',
+56 silly registry.get     'content-length': '52',
+56 silly registry.get     'cache-control': 'must-revalidate' } ]
+57 silly lockFile c3142839-node-LDAP node-LDAP@
+58 error 404 'node-LDAP' is not in the npm registry.
+58 error 404 You should bug the author to publish it
+58 error 404
+58 error 404 Maybe try 'npm search     '
+58 error 404
+58 error 404 Note that you can also install from a
+58 error 404 tarball, folder, or http url, or git url.
+59 error System Darwin 12.2.0
+60 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "node-LDAP"
+61 error cwd /Users/leipazapalli/Documents/nodeapp/nring
+62 error node -v v0.8.15
+63 error npm -v 1.1.66
+64 error code E404
+65 verbose exit [ 1, true ]

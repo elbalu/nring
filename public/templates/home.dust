@@ -1,2 +1,10 @@
-{>"public/templates/post.dust"/}
+<div class="row" id="homePage">
+	<div class="span10">
+	</div>
+	<div class="span2 postsContainer pull-right">
+		<div>
+			{>"public/templates/post.dust"/}
+		</div>
+	</div>
+</div>
 
