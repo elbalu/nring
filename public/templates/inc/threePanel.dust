@@ -1,7 +1,25 @@
-    
- <div class="row-fluid" id="threePanel">
-    <div class="span3"><h1> <a href="/creat_post">+ post</a></h1></div>
-    <div class="span3"><h1> <a href="/lib">view lib</a></h1></div>
-    <div class="span3"><h1> <a href="/posts">view post</a></h1></div>
-    <div class="span3"><h1> <a href="/"></a></h1></div>
-    </div>
+<div class="options">
+	<div class="row">
+		<div class="span4">
+			<div class="well">
+				<h2>Social lib</h2>
+				<p>upload the items that you are not using or sleeping in your rack to get some bucks.</p>
+				<a href="/lib" class="btn btn-primary">Create your library</a>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="well">
+				<h2>Explore</h2>
+				<p>Ask your colleuges if they have what you want</p>
+				<a href="/request" class="btn btn-primary">Create your request</a>
+			</div>
+		</div>
+		<div class="span4 ">
+			<div class="well">
+				<h2>Give away</h2>
+				<p>thinking of giving some thing that you are using</p>
+				<a href="/giveaway" class="btn btn-primary">Create your Give Away</a>
+			</div>
+		</div>
+	</div>
+</div>

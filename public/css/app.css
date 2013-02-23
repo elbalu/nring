@@ -4926,9 +4926,14 @@ body {
   width: 100%;
 }
 .centerContent .container {
-  width: 100%;
+  width: 90%;
 }
 /*posts style */
+.thumbnails {
+  height: 520px;
+  width: 112%;
+  overflow: auto;
+}
 .thumbnails .thumbnail {
   border-top: 5px solid #A4C143;
 }

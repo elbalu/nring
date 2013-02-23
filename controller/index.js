@@ -5,13 +5,16 @@ module.exports = function(app) {
 	 app.get('/', function(req, res){
         var session = req.session,
                 user = session.user;
-
         req.model = {
                 viewName: 'home',
                 master: 'public/templates/base',
                 data: {
                     session:session,                   
                     title: 'home',
+                    user:{
+                    	fname:'balu',
+                    	newUser:true
+                    },
                     posts:[
 	                    {
 	                    	type:'ga'
@@ -120,6 +123,33 @@ module.exports = function(app) {
 	                    },
 	                    {
 	                    	type:'ga'
+
+	                    }
+	                    ]
+
+                    
+                }
+         };
+       res.render(req.model.master, req.model);
+
+    });
+
+
+ app.get('/lib', function(req, res){
+        var session = req.session,
+                user = session.user;
+
+        req.model = {
+                viewName: 'lib',
+                master: 'public/templates/base',
+                data: {
+                    session:session,                   
+                    title: 'lib',
+                    rack:[
+	                    {
+	                    	category:'book',
+	                    	avaliable:true,
+	                    	name:'the book'
 
 	                    }
 	                    ]

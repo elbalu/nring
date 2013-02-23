@@ -1,10 +1,22 @@
 <div class="row" id="homePage">
-	<div class="span10">
+	<div class="span12">
+			{?data.user}
+				{?data.user.newUser}
+					<div>
+						{>"public/templates/inc/carousel.dust"/}
+					</div>
+					{>"public/templates/inc/threePanel.dust"/}
+				{:else}
+					<div class="hero-unit">
+						<h1> Recent Transactions</h1>
+					</div>
+				{/data.user.newUser}
+			{:else}
+				{>"public/templates/login.dust"/}
+			{/data.user}
 	</div>
-	<div class="span2 postsContainer pull-right">
-		<div>
-			{>"public/templates/post.dust"/}
-		</div>
+	<div class="span4 pull-right">
+		{>"public/templates/post.dust"/}
 	</div>
 </div>
 

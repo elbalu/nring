@@ -15,36 +15,54 @@ require('dustjs-helpers');
 
 
 
-//var RedisStore = require('connect-redis');
+var config = require('./config');
+var User = require('./model/UserModel');
 
+//setting for passport
 
-passport.serializeUser(function(user, done) {
-  done(null, user);
+passport.serializeUser(function(user, done){
+  done(null, user.id);
 });
+passport.deserializeUser(function(id, done){
+  User.findOne(id, function(err, user){
+    done(err,user);
+  });
+})
 
-passport.deserializeUser(function(obj, done) {
-  done(null, obj);
-});
+
+
+
+
+//setting for passport
 
 passport.use(new FacebookStrategy({
-	clientID: '226754337433632',
-	clientSecret: 'eacf1c10be67306ffbfecddc626a2aa0',
-	callbackURL: "http://elbalu.in:3000/auth/facebook/callback"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    // asynchronous verification, for effect...
-    process.nextTick(function () {
-      
-      // To keep the example simple, the user's Facebook profile is returned to
-      // represent the logged-in user. In a typical application, you would want
-      // to associate the Facebook account with a user record in your database,
-      // and return that user instead.
-      return done(null, profile);
-    });
-  }
+  clientID: config.development.fb.appId,
+  clientSecret: config.development.fb.appSecret,
+  callbackURL: config.development.fb.url + 'fbauthed'
+},
+function(accessToken, refreshToken, profile, done){
+  process.nextTick(function(){
+    var query = User.findOne({'fbId': profile.id});
+    query.exec(function(err, oldUser){
+      if(oldUser){
+        console.log('Existing User: '+ oldUser.name + ' found and logged in!');
+        done(null, oldUser);
+      } else { 
+          var newUser = new User();
+          newUser.fbId = profile.id;
+          newUser.name = profile.displayName;
+          newUser.email = profile.emails[0].value;
+
+          newUser.save(function(err){
+            if(err) throw err;
+            console.log('New User: '+ newUser.name+' created and logged in!');
+            done(null, newUser);
+          });
+      }
+    })
+  });
+}
 ));
-
-
 
 var app = express();
 
@@ -57,13 +75,14 @@ app.configure(function(){
 	app.set('template_engine', dust);
 	app.use(express.favicon());
 	app.use(express.logger('short'));
+
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(express.cookieParser('your secret here'));
 	//app.use(express.cookieDecoder());
 	app.use(express.session({ secret: 'foo bar' }));
 	app.use(passport.initialize());
-  	app.use(passport.session());
+  app.use(passport.session());
 	app.use(app.router);
 	app.use(require('less-middleware')({ src: __dirname + '/public' }));
 	app.use(express.static(path.join(__dirname, '/public')));
@@ -82,9 +101,35 @@ fs.readdir('./controller', function(err, files){
 });
 
 
-app.listen(app.get('port'), function(){
-	console.log("Express server listening on port " + app.get('port'));
-});
+//populate
+
+// var user = new User();
+// user.firstname = 'balu';
+// user.lastname = 'loganathan';
+// user.email = 'elbalu@gmail.com';
+// user.save(function(error , user){
+//   if(error)
+//     console.log(error);
+//   else
+//     console.log('user saved: '+ user);
+// })
+
+
+//query
+// User.findOne({ 'lastname' : 'loganathan'}, function(error, user){
+//   if(error){
+//     console.log(error);
+//   }
+//   if(user){
+//     console.log('HI '+user.fullname);
+//   }
+// });
+
+// app.listen(app.get('port'), function(){
+// 	console.log("Express server listening on port " + app.get('port'));
+// });
+
+
 
 
 
@@ -139,260 +184,260 @@ app.listen(app.get('port'), function(){
 
 
 
-var ldap = require('ldapjs');
+// var ldap = require('ldapjs');
 
 
-///--- Shared handlers
-
-
-
-///--- Globals
-
-var SUFFIX = 'o=joyent';
-var db = {};
-var server = ldap.createServer();
+// ///--- Shared handlers
 
 
 
-server.bind('cn=root', function(req, res, next) {
-  if (req.dn.toString() !== 'cn=root' || req.credentials !== 'secret')
-    return next(new ldap.InvalidCredentialsError());
+// ///--- Globals
 
-  res.end();
-  return next();
-});
-
-server.add(SUFFIX, authorize, function(req, res, next) {
-  var dn = req.dn.toString();
-
-  if (db[dn])
-    return next(new ldap.EntryAlreadyExistsError(dn));
-
-  db[dn] = req.toObject().attributes;
-  res.end();
-  return next();
-});
-
-server.bind(SUFFIX, function(req, res, next) {
-  var dn = req.dn.toString();
-  if (!db[dn])
-    return next(new ldap.NoSuchObjectError(dn));
-
-  if (!dn[dn].userpassword)
-    return next(new ldap.NoSuchAttributeError('userPassword'));
-
-  if (db[dn].userpassword !== req.credentials)
-    return next(new ldap.InvalidCredentialsError());
-
-  res.end();
-  return next();
-});
-
-server.compare(SUFFIX, authorize, function(req, res, next) {
-  var dn = req.dn.toString();
-  if (!db[dn])
-    return next(new ldap.NoSuchObjectError(dn));
-
-  if (!db[dn][req.attribute])
-    return next(new ldap.NoSuchAttributeError(req.attribute));
-
-  var matches = false;
-  var vals = db[dn][req.attribute];
-  for (var i = 0; i < vals.length; i++) {
-    if (vals[i] === req.value) {
-      matches = true;
-      break;
-    }
-  }
-
-  res.end(matches);
-  return next();
-});
-
-server.del(SUFFIX, authorize, function(req, res, next) {
-  var dn = req.dn.toString();
-  if (!db[dn])
-    return next(new ldap.NoSuchObjectError(dn));
-
-  delete db[dn];
-
-  res.end();
-  return next();
-});
-
-server.modify(SUFFIX, authorize, function(req, res, next) {
-  var dn = req.dn.toString();
-  if (!req.changes.length)
-    return next(new ldap.ProtocolError('changes required'));
-  if (!db[dn])
-    return next(new ldap.NoSuchObjectError(dn));
-
-  var entry = db[dn];
-
-  for (var i = 0; i < req.changes.length; i++) {
-    mod = req.changes[i].modification;
-    switch (req.changes[i].operation) {
-    case 'replace':
-      if (!entry[mod.type])
-        return next(new ldap.NoSuchAttributeError(mod.type));
-
-      if (!mod.vals || !mod.vals.length) {
-        delete entry[mod.type];
-      } else {
-        entry[mod.type] = mod.vals;
-      }
-
-      break;
-
-    case 'add':
-      if (!entry[mod.type]) {
-        entry[mod.type] = mod.vals;
-      } else {
-        mod.vals.forEach(function(v) {
-          if (entry[mod.type].indexOf(v) === -1)
-            entry[mod.type].push(v);
-        });
-      }
-
-      break;
-
-    case 'delete':
-      if (!entry[mod.type])
-        return next(new ldap.NoSuchAttributeError(mod.type));
-
-      delete entry[mod.type];
-
-      break;
-    }
-  }
-
-  res.end();
-  return next();
-});
-
-server.search(SUFFIX, authorize, function(req, res, next) {
-  var dn = req.dn.toString();
-  if (!db[dn])
-    return next(new ldap.NoSuchObjectError(dn));
-
-  var scopeCheck;
-
-  switch (req.scope) {
-  case 'base':
-    if (req.filter.matches(db[dn])) {
-      res.send({
-        dn: dn,
-        attributes: db[dn]
-      });
-    }
-
-    res.end();
-    return next();
-
-  case 'one':
-    scopeCheck = function(k) {
-      if (req.dn.equals(k))
-        return true;
-
-      var parent = ldap.parseDN(k).parent();
-      return (parent ? parent.equals(req.dn) : false);
-    };
-    break;
-
-  case 'sub':
-    scopeCheck = function(k) {
-      return (req.dn.equals(k) || req.dn.parentOf(k));
-    };
-
-    break;
-  }
-
-  Object.keys(db).forEach(function(key) {
-    if (!scopeCheck(key))
-      return;
-
-    if (req.filter.matches(db[key])) {
-      res.send({
-        dn: key,
-        attributes: db[key]
-      });
-    }
-  });
-
-  res.end();
-  return next();
-});
+// var SUFFIX = 'o=joyent';
+// var db = {};
+// var server = ldap.createServer();
 
 
-function loadPasswdFile(req, res, next) {
-  fs.readFile('etc/passwd', 'utf8', function(err, data) {
 
-    if (err)
-      return next(new ldap.OperationsError(err.message));
+// server.bind('cn=root', function(req, res, next) {
+//   if (req.dn.toString() !== 'cn=root' || req.credentials !== 'secret')
+//     return next(new ldap.InvalidCredentialsError());
 
-    req.users = {};
+//   res.end();
+//   return next();
+// });
 
-    var lines = data.split('\n');
-    for (var i = 0; i < lines.length; i++) {
-      if (!lines[i] || /^#/.test(lines[i]))
-        continue;
+// server.add(SUFFIX, authorize, function(req, res, next) {
+//   var dn = req.dn.toString();
 
-      var record = lines[i].split(':');
-      if (!record || !record.length)
-        continue;
+//   if (db[dn])
+//     return next(new ldap.EntryAlreadyExistsError(dn));
 
-      req.users[record[0]] = {
-        dn: 'cn=' + record[0] + ', ou=users, o=myhost',
-        attributes: {
-          cn: record[0],
-          uid: record[2],
-          gid: record[3],
-          description: record[4],
-          homedirectory: record[5],
-          password: record[7],
-          shell: record[6] || '',
-          objectclass: 'unixUser'
-        }
-      };
-    }
+//   db[dn] = req.toObject().attributes;
+//   res.end();
+//   return next();
+// });
 
-    return next();
-  });
-}
+// server.bind(SUFFIX, function(req, res, next) {
+//   var dn = req.dn.toString();
+//   if (!db[dn])
+//     return next(new ldap.NoSuchObjectError(dn));
 
-var pre = [authorize, loadPasswdFile];
+//   if (!dn[dn].userpassword)
+//     return next(new ldap.NoSuchAttributeError('userPassword'));
 
-function authorize(req, res, next) {
-  console.log(req.connection.ldap.bindDN);
-  if (!req.connection.ldap.bindDN.equals('cn=root'))
-    return next(new ldap.InsufficientAccessRightsError());
+//   if (db[dn].userpassword !== req.credentials)
+//     return next(new ldap.InvalidCredentialsError());
 
-  return next();
-}
+//   res.end();
+//   return next();
+// });
+
+// server.compare(SUFFIX, authorize, function(req, res, next) {
+//   var dn = req.dn.toString();
+//   if (!db[dn])
+//     return next(new ldap.NoSuchObjectError(dn));
+
+//   if (!db[dn][req.attribute])
+//     return next(new ldap.NoSuchAttributeError(req.attribute));
+
+//   var matches = false;
+//   var vals = db[dn][req.attribute];
+//   for (var i = 0; i < vals.length; i++) {
+//     if (vals[i] === req.value) {
+//       matches = true;
+//       break;
+//     }
+//   }
+
+//   res.end(matches);
+//   return next();
+// });
+
+// server.del(SUFFIX, authorize, function(req, res, next) {
+//   var dn = req.dn.toString();
+//   if (!db[dn])
+//     return next(new ldap.NoSuchObjectError(dn));
+
+//   delete db[dn];
+
+//   res.end();
+//   return next();
+// });
+
+// server.modify(SUFFIX, authorize, function(req, res, next) {
+//   var dn = req.dn.toString();
+//   if (!req.changes.length)
+//     return next(new ldap.ProtocolError('changes required'));
+//   if (!db[dn])
+//     return next(new ldap.NoSuchObjectError(dn));
+
+//   var entry = db[dn];
+
+//   for (var i = 0; i < req.changes.length; i++) {
+//     mod = req.changes[i].modification;
+//     switch (req.changes[i].operation) {
+//     case 'replace':
+//       if (!entry[mod.type])
+//         return next(new ldap.NoSuchAttributeError(mod.type));
+
+//       if (!mod.vals || !mod.vals.length) {
+//         delete entry[mod.type];
+//       } else {
+//         entry[mod.type] = mod.vals;
+//       }
+
+//       break;
+
+//     case 'add':
+//       if (!entry[mod.type]) {
+//         entry[mod.type] = mod.vals;
+//       } else {
+//         mod.vals.forEach(function(v) {
+//           if (entry[mod.type].indexOf(v) === -1)
+//             entry[mod.type].push(v);
+//         });
+//       }
+
+//       break;
+
+//     case 'delete':
+//       if (!entry[mod.type])
+//         return next(new ldap.NoSuchAttributeError(mod.type));
+
+//       delete entry[mod.type];
+
+//       break;
+//     }
+//   }
+
+//   res.end();
+//   return next();
+// });
+
+// server.search(SUFFIX, authorize, function(req, res, next) {
+//   var dn = req.dn.toString();
+//   if (!db[dn])
+//     return next(new ldap.NoSuchObjectError(dn));
+
+//   var scopeCheck;
+
+//   switch (req.scope) {
+//   case 'base':
+//     if (req.filter.matches(db[dn])) {
+//       res.send({
+//         dn: dn,
+//         attributes: db[dn]
+//       });
+//     }
+
+//     res.end();
+//     return next();
+
+//   case 'one':
+//     scopeCheck = function(k) {
+//       if (req.dn.equals(k))
+//         return true;
+
+//       var parent = ldap.parseDN(k).parent();
+//       return (parent ? parent.equals(req.dn) : false);
+//     };
+//     break;
+
+//   case 'sub':
+//     scopeCheck = function(k) {
+//       return (req.dn.equals(k) || req.dn.parentOf(k));
+//     };
+
+//     break;
+//   }
+
+//   Object.keys(db).forEach(function(key) {
+//     if (!scopeCheck(key))
+//       return;
+
+//     if (req.filter.matches(db[key])) {
+//       res.send({
+//         dn: key,
+//         attributes: db[key]
+//       });
+//     }
+//   });
+
+//   res.end();
+//   return next();
+// });
 
 
-server.search('o=myhost', pre, function(req, res, next) {
-  console.log('------res------');
-  console.log(req.users);
-  console.log('------res------');
-  Object.keys(req.users).forEach(function(k) {
-    console.log('------K------');
-  console.log(k);
-  console.log('------k------');
-    if (req.filter.matches(req.users[k].attributes))
-      console.log('------req.users[k]------');
-  console.log(req.users[k]);
-  console.log('------req.users[k]------');
-      res.send(req.users[k]);
-  });
+// function loadPasswdFile(req, res, next) {
+//   fs.readFile('etc/passwd', 'utf8', function(err, data) {
 
-  res.end();
-  return next();
-});
+//     if (err)
+//       return next(new ldap.OperationsError(err.message));
+
+//     req.users = {};
+
+//     var lines = data.split('\n');
+//     for (var i = 0; i < lines.length; i++) {
+//       if (!lines[i] || /^#/.test(lines[i]))
+//         continue;
+
+//       var record = lines[i].split(':');
+//       if (!record || !record.length)
+//         continue;
+
+//       req.users[record[0]] = {
+//         dn: 'cn=' + record[0] + ', ou=users, o=myhost',
+//         attributes: {
+//           cn: record[0],
+//           uid: record[2],
+//           gid: record[3],
+//           description: record[4],
+//           homedirectory: record[5],
+//           password: record[7],
+//           shell: record[6] || '',
+//           objectclass: 'unixUser'
+//         }
+//       };
+//     }
+
+//     return next();
+//   });
+// }
+
+// var pre = [authorize, loadPasswdFile];
+
+// function authorize(req, res, next) {
+//   console.log(req.connection.ldap.bindDN);
+//   if (!req.connection.ldap.bindDN.equals('cn=root'))
+//     return next(new ldap.InsufficientAccessRightsError());
+
+//   return next();
+// }
 
 
-///--- Fire it up
+// server.search('o=myhost', pre, function(req, res, next) {
+//   console.log('------res------');
+//   console.log(req.users);
+//   console.log('------res------');
+//   Object.keys(req.users).forEach(function(k) {
+//     console.log('------K------');
+//   console.log(k);
+//   console.log('------k------');
+//     if (req.filter.matches(req.users[k].attributes))
+//       console.log('------req.users[k]------');
+//   console.log(req.users[k]);
+//   console.log('------req.users[k]------');
+//       res.send(req.users[k]);
+//   });
 
-server.listen(1389, function() {
-  console.log('LDAP server up at: %s', server.url);
-});
+//   res.end();
+//   return next();
+// });
+
+
+// ///--- Fire it up
+
+// server.listen(1389, function() {
+//   console.log('LDAP server up at: %s', server.url);
+// });
