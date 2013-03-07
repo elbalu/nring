@@ -1,31 +1,30 @@
-// var mongoose = require('mongoose');
-// mongoose.connection.on('error', function(err){
-// 	console.log('error in connection--------');
-// });
-// mongoose.connect('localhost', 'test');
-// var userSchema = new mongoose.Schema({
-// 	firstname: String,
-// 	lastname: String,
-// 	email:{
-// 		type: String,
-// 		lowercase: true
-// 	}
-// });
+var mongoose = require('mongoose')
+	, config = require('../config')
+	, Schema = mongoose.Schema
+ 	, ObjectId = mongoose.SchemaTypes.ObjectId;
+
+mongoose.connection.on('error', function (err) {
+  console.log(err);
+});
+
+mongoose.connection.on('open', function () {
+  console.log('connected');
+});
+
+mongoose.connect(config.development.dbUrl);
 
 
-// //Virtual
-
-// userSchema.virtual('fullname').get(function(){
-// 	return this.firstname + ' ' + this.lastname;
-// });
-
-
-// //validation
-
-// userSchema.path('email').validate(function(value){
-// 	var re = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-// 	return re.test(value);
-// }, 'Invalid Email');
+var userSchema = new Schema({
+	fbId: String,
+	name: String,
+	email:{ type: String, lowerCase: true},
+	username: String
+});
 
 
-// module.exports = mongoose.model('User2', userSchema);
+try{
+	User=mongoose.model('User');
+}catch(e){
+	User= mongoose.model('User', userSchema)
+}
+module.exports = User;

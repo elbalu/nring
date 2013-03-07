@@ -1,20 +1,19 @@
 module.exports = function(app) {
        
-
+	var middleware = require('./middleware');
 
 	 app.get('/', function(req, res){
         var session = req.session,
                 user = session.user;
+                console.log('session- user---------------------------------');
+                console.log(session);
         req.model = {
                 viewName: 'home',
                 master: 'public/templates/base',
                 data: {
                     session:session,                   
                     title: 'home',
-                    user:{
-                    	fname:'balu',
-                    	newUser:true
-                    },
+                    
                     posts:[
 	                    {
 	                    	type:'ga'
@@ -70,7 +69,7 @@ module.exports = function(app) {
     });
 
 
-	 app.get('/posts', function(req, res){
+	 app.get('/posts',  middleware.authenticatedUser, function(req, res){
         var session = req.session,
                 user = session.user;
 
@@ -135,7 +134,7 @@ module.exports = function(app) {
     });
 
 
- app.get('/lib', function(req, res){
+ app.get('/lib',  middleware.authenticatedUser, function(req, res){
         var session = req.session,
                 user = session.user;
 

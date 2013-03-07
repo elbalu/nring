@@ -16,7 +16,8 @@ require('dustjs-helpers');
 
 
 var config = require('./config');
-var User = require('./model/UserModel');
+var User = require('./model/model'),
+  routes = require('./routes/index');
 
 //setting for passport
 
@@ -41,6 +42,8 @@ passport.use(new FacebookStrategy({
   callbackURL: config.development.fb.url + 'fbauthed'
 },
 function(accessToken, refreshToken, profile, done){
+  console.log('----profile----------');
+  console.log(profile);
   process.nextTick(function(){
     var query = User.findOne({'fbId': profile.id});
     query.exec(function(err, oldUser){
@@ -51,7 +54,8 @@ function(accessToken, refreshToken, profile, done){
           var newUser = new User();
           newUser.fbId = profile.id;
           newUser.name = profile.displayName;
-          newUser.email = profile.emails[0].value;
+          newUser.email = profile.emails[0].value,
+          newUser.username = profile.username;
 
           newUser.save(function(err){
             if(err) throw err;
@@ -79,7 +83,6 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(express.cookieParser('your secret here'));
-	//app.use(express.cookieDecoder());
 	app.use(express.session({ secret: 'foo bar' }));
 	app.use(passport.initialize());
   app.use(passport.session());
@@ -93,6 +96,12 @@ app.configure('development', function(){
 	app.use(express.errorHandler());
 });
 
+
+app.get('/fbauth', passport.authenticate('facebook', { scope: 'email'}));
+
+app.get('/fbauthed', passport.authenticate('facebook', {successRedirect: '/', failureRedirect: '/'}), routes.loggedin);
+
+
 fs.readdir('./controller', function(err, files){
     files.forEach(function(fn) {
         if(!/\.js$/.test(fn)) return;
@@ -100,6 +109,10 @@ fs.readdir('./controller', function(err, files){
     });
 });
 
+
+app.listen(3000, function () {
+    console.log('Server running at http://localhost: 3000%s/');
+  });
 
 //populate
 

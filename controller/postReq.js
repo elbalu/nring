@@ -1,6 +1,6 @@
 module.exports = function(app) {
        
-
+var middleware = require('./middleware');
 
     function processpostReqting(req,res){
     	 var session = req.session,
@@ -17,7 +17,7 @@ module.exports = function(app) {
     }
 
 
-	 app.get('/postReq', function(req, res){
+	 app.get('/postReq', middleware.authenticatedUser, function(req, res){
 
 	 		var json = processpostReqting(req,res);
 

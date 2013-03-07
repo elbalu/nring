@@ -24,10 +24,10 @@
 	  	{>"public/templates/inc/header.dust"/}
 	
 	  	<div class="centerContent">
-			<div class="container">
+			
 	    	{>"public/templates/{viewName}.dust"/}
 
-	   </div>
+	  
 		</div> <!-- /container -->
 		</div>
 	

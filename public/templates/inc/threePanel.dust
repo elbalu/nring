@@ -11,7 +11,7 @@
 			<div class="well">
 				<h2>Explore</h2>
 				<p>Ask your colleuges if they have what you want</p>
-				<a href="/request" class="btn btn-primary">Create your request</a>
+				<a href="#requestModal" role="button" class="btn" data-toggle="modal">Create your request</a>
 			</div>
 		</div>
 		<div class="span4 ">
